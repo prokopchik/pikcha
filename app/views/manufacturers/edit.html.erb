@@ -1,0 +1,11 @@
+<%- if @manufacturer.errors %>
+  <%- @manufacturer.errors.full_messages.each do |error| %>
+    <%= error %>
+    <br />
+  <% end %>
+<% end %>
+
+<%= form_for @manufacturer do |f| %>
+  Name: <%= f.text_field :name %><br />
+    <%= f.submit %>
+<% end %>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pikcha</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <center>
+      <b> <font size="7">Интернет магазин Pikcha</font> <b/>
+    </center>
+
+    <center>
+      <button>
+        <font size="5"><%= link_to "На главную", root_path %></font>
+      </button>
+
+      <button>
+        <font size="5"><%= link_to "модели", mobile_phones_path %></font>
+      </button>
+
+      <button>
+        <font size="5"><%= link_to "производители", manufacturers_path %></font>
+      </button>
+
+      <button>
+        <font size="5"><%= link_to "цвета", colors_path %></font>
+      </button>
+    </center>
+
+    <left>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    </left>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: pikcha_development
+  pool: 5
+  username: ihar
+  password: ihar
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: pikcha_test
+  pool: 5
+  username: ihar
+  password: ihar
