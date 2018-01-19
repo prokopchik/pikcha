@@ -8,6 +8,7 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    avatar: Field::Paperclip.with_options(thumbnail_style: :thumb, big_style: :medium),
     role: Field::BelongsTo,
     addresses: Field::HasMany,
     currency: Field::BelongsTo,
@@ -35,6 +36,7 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :avatar,
     :role,
     :addresses,
     :currency,
@@ -44,6 +46,7 @@ class UserDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :avatar,
     :role,
     :addresses,
     :currency,
@@ -69,6 +72,7 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :avatar,
     :name,
     :role,
     :phone_number,
