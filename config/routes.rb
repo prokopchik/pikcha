@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :currencies
     resources :manufacturers
     resources :mobile_phones
+    resources :mobile_phone_pictures
     resources :operation_systems
     resources :orders
     resources :order_mobile_phones

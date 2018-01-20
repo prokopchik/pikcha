@@ -8,6 +8,7 @@ class MobilePhoneDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    mobile_phone_pictures: Field::HasMany,
     manufacturer: Field::BelongsTo,
     operation_system: Field::BelongsTo,
     colors: Field::HasMany,
@@ -37,6 +38,7 @@ class MobilePhoneDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :mobile_phone_pictures,
     :manufacturer,
     :operation_system,
     :colors,
@@ -54,6 +56,7 @@ class MobilePhoneDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :mobile_phone_pictures,
     :manufacturer,
     :operation_system,
     :colors,
