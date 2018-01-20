@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+.thumb-icon {
+  width: 66px;
+  max-height: 66px;
+}
+
+.black-link {
+  color: #000000;
+}
+
+.black-link:hover {
+  color: #f5b60a;
+  text-decoration: none;
+}

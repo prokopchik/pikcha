@@ -1,22 +1,29 @@
-<table>
-  <tr>
-    <th>Производитель</th>
-    <th>Модель</th>
-    <th>Объем памяти (Gb)</th>
-  </tr>
-  <%- @mobile_phones.each do |mobile_phone| %>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <td><%= mobile_phone.manufacturer.name %></td>
-      <td>
-        <%= link_to mobile_phone.name, mobile_phone_path(mobile_phone)%>
-      </td>
-      <td><%= mobile_phone.memory_storage %></td>
+      <th scope="col"></th>
+      <th scope="col">Модель:</th>
+      <th scope="col">Объем памяти (Gb):</th>
+      <th scope="col">Цена (руб.):</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <%- @mobile_phones.each do |mobile_phone| %>
+      <tr>
+        <td>
+          <%= link_to mobile_phone_path(mobile_phone) do %>
+            <% if mobile_phone.mobile_phone_pictures.first %>
+              <%= image_tag mobile_phone.mobile_phone_pictures.first.picture.url(:thumb) %>
+            <% else %>
+              <%= image_tag "/images/mobile_phone_missing_image.png", class: "thumb-icon"   %>
+            <% end %>
+          <% end %>
+        </td>
+        <td><%= link_to "#{mobile_phone.manufacturer.name}" "#{mobile_phone.name}",mobile_phone_path(mobile_phone), class: "black-link"  %></td>
+        <td><%= mobile_phone.memory_storage %></td>
+        <td><%= mobile_phone.price%></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<!--
-<button>
-  <%= link_to "На главную", root_path %>
-</button>
--->

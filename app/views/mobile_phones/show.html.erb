@@ -1,23 +1,37 @@
-<b>
-  <%= link_to @mobile_phone.manufacturer.name %>
-  <%= @mobile_phone.name %>
-</b>
-<br />
-<%= @mobile_phone.memory_storage %>
-<br />
-<%= @mobile_phone.display_size %>
-<br />
-<%= @mobile_phone.operative_memory %>
-<br />
-<%= @mobile_phone.processor %>
-<br />
-<%= @mobile_phone.operation_system.name %>
-<br />
-<%- @mobile_phone.colors.each do |color| %>
-<%= color.name %>
-<% end %>
-<br/>
+<table class="table">
+  <tbody>
+    <tr>
+      <td>Модель:</td>
+      <td><%= "#{@mobile_phone.manufacturer.name} #{@mobile_phone.name}" %></td>
+    </tr>
+    <tr>
+      <td>Флэш-память:</td>
+      <td><%= @mobile_phone.memory_storage %></td>
+    </tr>
+    <tr>
+      <td>Размер экрана:</td>
+      <td><%= @mobile_phone.display_size %></td>
+    </tr>
+    <tr>
+      <td>Процессор:</td>
+      <td><%= @mobile_phone.processor %></td>
+    </tr>
+    <tr>
+      <td>Оперативная память:</td>
+      <td><%= @mobile_phone.operative_memory %></td>
+    </tr>
+    <tr>
+      <td>Операционная система:</td>
+      <td><%= @mobile_phone.operation_system.name %></td>
+    </tr>
+    <tr>
+      <td>Цвет:</td>
+      <td>
+        <%= @mobile_phone.colors.map { |color| color.name }.join(", ") %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<button>
-  <%= link_to "назад", mobile_phones_path %>
-</button>
+<%= link_to "назад", mobile_phones_path, class: "btn btn-dark" %>
+
