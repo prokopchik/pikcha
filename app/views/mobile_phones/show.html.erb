@@ -1,5 +1,5 @@
 <b>
-  <%= link_to @mobile_phone.manufacturer.name, manufacturer_path(@mobile_phone.manufacturer)%>
+  <%= link_to @mobile_phone.manufacturer.name %>
   <%= @mobile_phone.name %>
 </b>
 <br />
@@ -17,12 +17,7 @@
 <%= color.name %>
 <% end %>
 <br/>
-<button>
-  <%= link_to "редактировать", edit_mobile_phone_path(@mobile_phone) %>
-</button>
-<button>
-  <%= link_to "удалить", mobile_phone_path(@mobile_phone), method: "DELETE", data: { confirm: "Are you sure?" } %>
-</button>
+
 <button>
   <%= link_to "назад", mobile_phones_path %>
 </button>
