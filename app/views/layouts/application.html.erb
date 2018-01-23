@@ -25,6 +25,12 @@
       <%= link_to "На главную", root_path, class: "btn btn-warning" %>
 
       <%= link_to "Каталог", mobile_phones_path, class: "btn btn-warning" %>
+      <%-  if current_user.present? %>
+        <%= link_to "Личный кабинет", user_path("me"), class: "btn btn-warning" %>
+        <%= link_to "Выйти из личного кабинета", destroy_user_session_path, class: "btn btn-warning", :confirm => 'Are you sure?', :method => :delete %>
+      <% else %>
+        <%= link_to "Войти", new_user_session_path(current_user), class: "btn btn-warning" %>
+      <% end %>
     </center>
 
     <left>
