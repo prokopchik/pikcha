@@ -1,9 +1,32 @@
+<%= link_to "Основная информация", user_path, class: "btn btn-warning" %>
+<%= link_to "Адреса", addresses_path, class: "btn btn-warning" %>
+<%= link_to "История заказов", user_path, class: "btn btn-warning" %>
+<br>
+<br>
 
-<%= current_user.name %> <br>
-<%= current_user.email %> <br>
-<%= current_user.phone_number %> <br>
-<%= current_user.role_id %> <br>
-<%= current_user.currency_id %> <br>
-<%= current_user.password %> <br>
-
-
+<table class="table">
+  <thead>
+    <tr class="table-active">
+      <th scope="row">Общая информация:</th>
+      <th scope="row"><%= link_to "Редактировать", edit_user_path("me"), class: "btn btn-primary btn-sm" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="col"><p><h1><%= current_user.name %></h1></p></th>
+      <th scope="col"><%= image_tag current_user.avatar.url(:thumb) %></th>
+    </tr>
+    <tr>
+      <th scope="row">Email:</th>
+      <th scope="row"><%= current_user.email %></th>
+    </tr>
+    <tr>
+      <th scope="row">Номер телефона:</th>
+      <th scope="row"><%= current_user.phone_number %></th>
+    </tr>
+    <tr>
+      <th scope="row">Валюта:</th>
+      <th scope="row"><%= current_user.currency.name %></th>
+    </tr>
+  </tbody>
+</table>

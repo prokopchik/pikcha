@@ -1,0 +1,31 @@
+<%= image_tag current_user.avatar.url(:thumb) %> <br><br>
+<div class="form-group">
+<%= form_for current_user, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
+  <div class="custom-file">
+    <%= f.file_field :avatar, class: "custom-file-inp" %>
+    <label class="custom-file-label" for="user_avatar">Выберите файл</label>
+  </div>
+  <%= f.label :name, value: "Имя:" %><br>
+  <%= f.text_field :name, class: "form-control" %><br>
+  <%= f.label :email, value: "Email:" %><br>
+  <%= f.text_field :email, class: "form-control" %><br>
+  <%= f.label :phone_number, value: "Номер телефона:" %><br>
+  <%= f.text_field :phone_number, class: "form-control" %><br>
+
+
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <%- Currency.all.each do |currency| %>
+      <label class="btn btn-secondary <%= 'active' if current_user.currency == currency %>">
+        <input type="radio" name="user[currency_id]" id="user_<%= currency.name %>" autocomplete="off" checked="<%= current_user.currency == currency %>" value="<%= currency.id %>"> <%= currency.name %>
+      </label>
+    <% end %>
+  </div>
+<br>
+
+<br>
+
+  <button type="submit" class="btn btn-primary">Изменить</button>
+  <%= link_to "Назад", user_path, class: "btn btn-primary" %>
+<% end %>
+</div>
+<br>

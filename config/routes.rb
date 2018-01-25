@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :mobile_phones, only: [:index, :show]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
+  resources :addresses
 
   root to: "home#index"
 end
