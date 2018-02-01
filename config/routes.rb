@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   namespace :admin do
     resources :users
     resources :addresses
@@ -19,6 +27,9 @@ Rails.application.routes.draw do
   resources :mobile_phones, only: [:index, :show]
   resources :users, only: [:show, :edit, :update]
   resources :addresses
+  resources :carts, only: [:show]
+  resources :order_mobile_phones, only:[:create, :update, :destroy]
+
 
   root to: "home#index"
 end

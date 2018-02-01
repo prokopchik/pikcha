@@ -1,0 +1,9 @@
+<% if @order_mobile_phones.size == 0 %>
+  <p class="text-center">
+    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+  </p>
+<% else %>
+  <% @order_mobile_phones.each do |order_mobile_phone| %>
+    <%= render 'carts/cart_row', mobile_phone: order_mobile_phone.mobile_phone, order_mobile_phone: order_mobile_phone, show_total: true %>
+  <% end %>
+<% end %>
