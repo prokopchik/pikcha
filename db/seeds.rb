@@ -154,29 +154,29 @@ mobile_phone_apple_iphone_5_16.colors << color_white
 order_mobile_phone_kos = OrderMobilePhone.create!(mobile_phone: mobile_phone_oneplus_5_128,
                                                  quantity: 1,
                                                  color: color_black,
-                                                 order: order_kos
+                                                 order: order_kos,
                                                  price: mobile_phone_oneplus_5_128.price * 1)
 
 order_mobile_phone_kos = OrderMobilePhone.create!(mobile_phone: mobile_phone_oneplus_3_64,
                                                  quantity: 2,
                                                  color: color_silver,
-                                                 order: order_kos
-                                                 price: mobile_phone_oneplus_3_64 * 2)
+                                                 order: order_kos,
+                                                 price: mobile_phone_oneplus_3_64.price * 2)
 
 order_mobile_phone_david = OrderMobilePhone.create!(mobile_phone: mobile_phone_apple_iphone_7_plus_128,
                                                    quantity: 1,
                                                    color: color_black,
-                                                   order: order_david
-                                                   price: mobile_phone_apple_iphone_7_plus_128 * 1)
+                                                   order: order_david,
+                                                   price: mobile_phone_apple_iphone_7_plus_128.price * 1)
 
 order_mobile_phone_ihar = OrderMobilePhone.create!(mobile_phone: mobile_phone_lg_nexus_5x_32,
                                                   quantity: 1,
                                                   color: color_black,
-                                                  order: order_ihar
-                                                  price: mobile_phone_lg_nexus_5x_32 * 1)
+                                                  order: order_ihar,
+                                                  price: mobile_phone_lg_nexus_5x_32.price * 1)
 
 order_mobile_phone_ihar = OrderMobilePhone.create!(mobile_phone: mobile_phone_apple_iphone_5_16,
                                                   quantity: 1,
                                                   color: color_white,
-                                                  order: order_ihar
-                                                  price: mobile_phone_apple_iphone_5_16 * 1)
+                                                  order: order_ihar,
+                                                  price: mobile_phone_apple_iphone_5_16.price * 1)
