@@ -72,6 +72,6 @@ class MobilePhoneDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(mobile_phone)
-    "#{mobile_phone.manufacturer.name} #{mobile_phone.name}"
+    mobile_phone.full_name
   end
 end

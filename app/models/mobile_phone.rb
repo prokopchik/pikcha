@@ -10,4 +10,7 @@ class MobilePhone < ApplicationRecord
   validates :memory_storage, numericality: { greater_than_or_equal_to: 16, less_than_or_equal_to: 256 }
   validates :operative_memory, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 16 }
 
+  def full_name
+    "#{manufacturer.name} #{name}"
+  end
 end

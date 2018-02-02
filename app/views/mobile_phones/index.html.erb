@@ -19,7 +19,7 @@
             <% end %>
           <% end %>
         </td>
-        <td><%= link_to "#{mobile_phone.manufacturer.name}" "#{mobile_phone.name}",mobile_phone_path(mobile_phone), class: "black-link"  %></td>
+        <td><%= link_to mobile_phone.full_name, mobile_phone_path(mobile_phone), class: "black-link"  %></td>
         <td><%= mobile_phone.memory_storage %></td>
         <td><%= mobile_phone.price%></td>
       </tr>
