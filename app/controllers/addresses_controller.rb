@@ -14,6 +14,7 @@ class AddressesController < ApplicationController
      @address = current_user.addresses.new(address_params)
 
     if @address.save
+      flash.notice = 'Адрес успешно добавлен'
       redirect_to addresses_path(@address)
     else
       render :new
@@ -38,6 +39,7 @@ class AddressesController < ApplicationController
     @address = current_user.addresses.find(params[:id])
 
     @address.destroy
+    flash.notice = "Адрес '#{@address.address_1}' успешно удален"
 
     redirect_to addresses_path
   end

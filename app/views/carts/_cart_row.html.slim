@@ -1,0 +1,31 @@
+table.table
+  = form_for order_mobile_phone, url: order_mobile_phone_path(order_mobile_phone), method: :patch, remote: true do |f|
+    thead
+      tr.bg-warning
+        th scope="col"
+          .panel.panel-primary
+            .row
+              .col-3
+                h4 = mobile_phone.full_name
+              .col-3
+                - units = current_user && current_user.currency ? current_user.currency.name : "BYN "
+                h4.text
+                  | Цена:
+                  span style="color: green" = number_to_currency order_mobile_phone.unit_price, unit: units
+    tbody
+      tr.table-dark
+        th scope="row"
+          .row
+            .col-3
+              = f.number_field :quantity, value: order_mobile_phone.quantity.to_i, class: "form-control", min: 1
+            .col-2
+              = f.select :color_id, order_mobile_phone.mobile_phone.colors.map { |p| [ p.name, p.id ] }, {}, { class: "form-control"}
+              = f.hidden_field :mobile_phone_id, value: mobile_phone.id
+            .col-1
+              = f.submit "Update", class: "btn btn-primary"
+            .col-1
+              = link_to "Delete", order_mobile_phone_path(order_mobile_phone), { data: { confirm: "Are you sure you wish to delete the product '#{mobile_phone.name}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" }
+            .col-4
+              h4.text-right
+                | Total Price:
+                span style="color: green" = number_to_currency order_mobile_phone.total_price, unit: units

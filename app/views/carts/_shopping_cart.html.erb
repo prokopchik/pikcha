@@ -1,6 +1,6 @@
 <% if @order_mobile_phones.size == 0 %>
   <p class="text-center">
-    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+    В вашей корзине нет товара.  Пожалуйста <%= link_to "перейдите в каталог", mobile_phones_path %> и добавьте товар в вашу корзину
   </p>
 <% else %>
   <% @order_mobile_phones.each do |order_mobile_phone| %>

@@ -11,6 +11,9 @@ module Pikcha
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    config.i18n.available_locales = [:ru, :en]
+    config.i18n.default_locale = :ru
+
     config.autoload_paths += %W(
       #{config.root}/app/validators/
     )

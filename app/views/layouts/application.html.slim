@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title Pikcha
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet"
+    script crossorigin="anonymous" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    script crossorigin="anonymous" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    script crossorigin="anonymous" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  body
+    center
+      b
+        font size="7" Интернет магазин Pikcha
+    center
+      = link_to "На главную", root_path, class: "btn btn-warning"
+      | &nbsp;
+      = link_to "Каталог", mobile_phones_path, class: "btn btn-warning"
+      - if current_user.present?
+        | &nbsp;
+        = link_to "Личный кабинет", user_path("me"), class: "btn btn-warning"
+        | &nbsp;
+        = link_to "Выйти из личного кабинета", destroy_user_session_path, class: "btn btn-warning", :confirm => 'Вы уверены?', :method => :delete
+      - else
+        | &nbsp;
+        = link_to "Войти", new_user_session_path(current_user), class: "btn btn-warning"
+      | &nbsp;
+      span.cart-text
+        = render 'layouts/cart_text'
+      span.badge.badge-pill.badge-success = notice
+    p.alert = alert
+    .container
+      = yield
