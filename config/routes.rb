@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :mobile_phones, only: [:index, :show]
   resources :users, only: [:show, :edit, :update]
   resources :addresses
-  resources :carts, only: [:show]
+  resources :carts, only: [:show, :create]
   resources :order_mobile_phones, only:[:create, :update, :destroy]
 
   root to: "home#index"

@@ -29,3 +29,5 @@ table.table
               h4.text-right
                 | Total Price:
                 span style="color: green" = number_to_currency order_mobile_phone.total_price, unit: units
+
+                = link_to "Купить", carts_path, class: "btn btn-warning", method: :POST

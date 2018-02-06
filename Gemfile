@@ -19,6 +19,7 @@ gem "administrate"
 gem 'administrate-field-paperclip'
 gem 'paperclip'
 gem 'slim'
+gem 'aasm'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
