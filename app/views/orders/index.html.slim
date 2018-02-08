@@ -1,0 +1,31 @@
+-current_user.orders.each do |order|
+  -order.order_mobile_phones.each do |omp|
+    table.table-active
+      thead
+        tr.table-active
+          th scope="row" Юзер ид:
+          th scope="row" адрес ид:
+          th scope="row" валюта ид:
+          th scope="row" omp
+          th scope="row" quantity
+          th scope="row" color
+          th scope="row" price
+
+      tbody
+        tr
+          th
+            = order.user.name
+          th
+            = order.address.address_1
+          th
+            = order.currency.name
+          th
+            = omp.mobile_phone.manufacturer.name
+          th
+            = omp.mobile_phone.name
+          th
+            = omp.quantity
+          th
+            = omp.color.name
+          th
+            =omp.price

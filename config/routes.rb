@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :addresses
   resources :carts, only: [:show, :create]
   resources :order_mobile_phones, only:[:create, :update, :destroy]
+  resources :orders, only: [:index, :show]
 
   root to: "home#index"
 end
