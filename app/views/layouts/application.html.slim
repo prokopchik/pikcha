@@ -29,7 +29,9 @@ html
       | &nbsp;
       span.cart-text
         = render 'layouts/cart_text'
+      br
       span.badge.badge-pill.badge-success = notice
-    p.alert = alert
+      span.badge.badge-pill.badge-success = alert
     .container
+      br
       = yield
