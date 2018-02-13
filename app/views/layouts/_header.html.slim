@@ -1,0 +1,24 @@
+nav.navbar.navbar-expand-lg.navbar-dark style=("background-color: #343a40;")
+  = link_to root_path, class: "navbar-brand"
+    img.d-inline-block.align-top alt="" height="30" src="/images/p-menu.png" width="50" /
+    | Pikcha
+  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        = link_to "На главную", root_path, class: "nav-link href"
+      li.nav-item
+        = link_to "Каталог", mobile_phones_path, class: "nav-link href"
+      - if current_user.present?
+        li.nav-item
+          = link_to "Личный кабинет", user_path("me"), class: "nav-link href"
+      - else
+        li.nav-item
+          = link_to "Войти", new_user_session_path(current_user), class: "nav-link href"
+    ul.nav.navbar-nav.navbar-right
+      li.nav-item
+        = render 'layouts/cart_text'
+    span.badge.badge-pill.badge-success = notice
+    span.badge.badge-pill.badge-success = alert
+

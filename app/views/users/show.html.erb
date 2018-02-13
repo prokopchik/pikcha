@@ -1,6 +1,9 @@
 <%= link_to "Основная информация", user_path, class: "btn btn-warning" %>
 <%= link_to "Адреса", addresses_path, class: "btn btn-warning" %>
 <%= link_to "История заказов", orders_path, class: "btn btn-warning" %>
+<%- if current_user.present? %>
+<%= link_to "Выйти из личного кабинета", destroy_user_session_path, class: "btn btn-warning", :confirm => 'Вы уверены?', :method => :delete %>
+<% end %>
 <br>
 <br>
 
@@ -24,10 +27,12 @@
       <th scope="row">Номер телефона:</th>
       <th scope="row"><%= current_user.phone_number %></th>
     </tr>
-    <tr>
-      <th scope="row">Валюта:</th>
-      <th scope="row"><%= current_user.currency.name %></th>
-    </tr>
+    <% if current_user.currency %>
+      <tr>
+        <th scope="row">Валюта:</th>
+        <th scope="row"><%= current_user.currency.name %></th>
+      </tr>
+    <% end %>
     <tr>
       <th scope="row">Роль:</th>
       <th scope="row"><%= current_user.role.name %></th>

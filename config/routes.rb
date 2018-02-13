@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :mobile_phones, only: [:index, :show]
   resources :users, only: [:show, :edit, :update]
   resources :addresses
