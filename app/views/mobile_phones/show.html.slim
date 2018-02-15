@@ -1,0 +1,48 @@
+- @mobile_phone.mobile_phone_pictures.each.with_index do |mobile_phone_picture, index|
+  = image_tag mobile_phone_picture.picture.url(:medium), class: "rounded"
+  br
+
+table.table
+  thead
+    div
+      h4.badge.badge-warning" Цена:
+        span
+          = number_to_currency @mobile_phone.price, unit: 'BYN '
+  tbody
+    tr
+      td Модель:
+      td = @mobile_phone.full_name
+    tr
+      td Флэш-память:
+      td = @mobile_phone.memory_storage
+    tr
+      td Размер экрана:
+      td = @mobile_phone.display_size
+    tr
+      td Процессор:</td>
+      td = @mobile_phone.processor
+    tr
+      td Оперативная память:
+      td = @mobile_phone.operative_memory
+    tr
+      td Операционная система:
+      td = @mobile_phone.operation_system.name
+    tr
+      td Цвет:
+      td
+        = @mobile_phone.colors.map { |color| color.name }.join(", ")
+= form_for :order_mobile_phone, url: order_mobile_phones_path, method: :post, remote: true do |f|
+
+  .row
+    .col-2
+      = f.number_field :quantity, value: 1, class: "form-control", min: 1
+    .col-2
+      = f.hidden_field :mobile_phone_id, value: @mobile_phone.id
+      = f.select :color_id, @mobile_phone.colors.map { |p| [ p.name, p.id ] }, {}, { class: "form-control" }
+    .col-2
+      = f.submit "Добавить в корзину", class: "btn btn-primary"
+    .col-2
+    = link_to "назад", mobile_phones_path, class: "btn btn-dark"
+br
+
+

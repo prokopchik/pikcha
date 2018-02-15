@@ -3,7 +3,7 @@ class CreateOperationSystems < ActiveRecord::Migration[5.1]
     create_table :operation_systems do |t|
       t.string :name
 
-      t.timestamp
+      t.timestamps
     end
   end
 end

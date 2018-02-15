@@ -9,15 +9,14 @@ class OrderMobilePhonesController < ApplicationController
 
   def update
     @order = current_order
-    @order_mobile_phones = @order.order_mobile_phones.find(params[:id])
-    @order_mobile_phones.update_attributes(order_mobile_phone_params)
-    @order_mobile_phones = @order.order_mobile_phones
+    @order_mobile_phone = @order.order_mobile_phones.find(params[:id])
+    @order_mobile_phone.update_attributes(order_mobile_phone_params)
   end
 
   def destroy
     @order = current_order
-    @order_mobile_phones = @order.order_mobile_phones.find(params[:id])
-    @order_mobile_phones.destroy
+    @order_mobile_phone = @order.order_mobile_phones.find(params[:id])
+    @order_mobile_phone.destroy
     @order_mobile_phones = @order.order_mobile_phones
   end
 

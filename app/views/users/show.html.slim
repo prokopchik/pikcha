@@ -1,0 +1,32 @@
+.row
+  .col-sm-4.col-md-3.sidebar
+      .nav.flex-column.nav-pills id="v-pills-tab" role="tablist" aria-orientation="vertical"
+        = link_to "Основная информация", user_path, class: "nav-link active"
+        = link_to "Адреса", addresses_path, class: "nav-link"
+        = link_to "История заказов", orders_path, class: "nav-link"
+        - if current_user.present?
+          = link_to "Выйти из личного кабинета", destroy_user_session_path, class: "nav-link", :confirm => 'Вы уверены?', :method => :delete
+  .col-sm-8.col-md-9.main
+    h2.sub-header
+      | Общая информация:
+      = link_to "Редактировать", edit_user_path("me"), class: "btn btn-primary float-right"
+    .table-responsive
+      table.table.table-striped
+        thead
+          tr
+            th = current_user.name
+            th = image_tag current_user.avatar.url(:thumb)
+        tbody
+          tr
+            td Email:
+            td = current_user.email
+          tr
+            td Номер телефона:
+            td = current_user.phone_number
+          - if current_user.currency
+            tr
+              td Валюта:
+              td = current_user.currency.name
+          tr
+            td Роль:
+            td = current_user.role.name

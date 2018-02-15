@@ -6,7 +6,7 @@ class CreateOrderMobilePhones < ActiveRecord::Migration[5.1]
       t.integer :mobile_phone_id
       t.integer :color_id
 
-      t.timestamp
+      t.timestamps
     end
   end
 end

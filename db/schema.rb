@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20180119204303) do
 
   create_table "colors", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "colors_mobile_phones", id: false, force: :cascade do |t|
@@ -44,6 +46,8 @@ ActiveRecord::Schema.define(version: 20180119204303) do
 
   create_table "manufacturers", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "logo_file_name"
     t.string "logo_content_type"
     t.integer "logo_file_size"
@@ -69,10 +73,14 @@ ActiveRecord::Schema.define(version: 20180119204303) do
     t.integer "operative_memory"
     t.string "processor"
     t.integer "operation_system_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "operation_systems", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "order_mobile_phones", force: :cascade do |t|
@@ -80,6 +88,8 @@ ActiveRecord::Schema.define(version: 20180119204303) do
     t.integer "quantity"
     t.integer "mobile_phone_id"
     t.integer "color_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.float "price"
   end
 

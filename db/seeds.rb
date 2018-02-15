@@ -51,17 +51,17 @@ address_ihar = Address.create!(address_1: "Slobodskaya 141-140",
 
 order_kos = Order.create!(user: user_kos,
                       address: address_kos,
-                      status: "в обработке",
+                      status: "new",
                       currency: currency_byn)
 
 order_david = Order.create!(user: user_david,
                       address: address_david,
-                      status: "в обработке",
+                      status: "new",
                       currency: currency_usd)
 
 order_ihar = Order.create!(user: user_ihar,
                       address: address_ihar,
-                      status: "done",
+                      status: "new",
                       currency: currency_eur)
 
 

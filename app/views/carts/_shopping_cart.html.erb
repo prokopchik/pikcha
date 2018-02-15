@@ -1,9 +1,0 @@
-<% if @order_mobile_phones.size == 0 %>
-  <p class="text-center">
-    В вашей корзине нет товара.  Пожалуйста <%= link_to "перейдите в каталог", mobile_phones_path %> и добавьте товар в вашу корзину
-  </p>
-<% else %>
-  <% @order_mobile_phones.each do |order_mobile_phone| %>
-    <%= render 'carts/cart_row', mobile_phone: order_mobile_phone.mobile_phone, order_mobile_phone: order_mobile_phone, show_total: true %>
-  <% end %>
-<% end %>

@@ -1,0 +1,18 @@
+table.table
+  tbody
+  - current_user.addresses.each do |address|
+    tr
+      th scope="row" Основной адрес:
+      th scope="row" = address.address_1
+    tr
+      th scope="row" Дополнительный адрес:
+      th scope="row" = address.address_2
+    tr
+      th scope="row" Город:
+      th scope="row" = address.city
+    tr
+      th scope="row" Страна:
+      th scope="row" = address.country
+    tr
+      th scope="row" Индекс:
+      th scope="row" = address.zip_code

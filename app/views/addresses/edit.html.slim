@@ -1,0 +1,20 @@
+- if @address.errors
+  - @address.errors.full_messages.each do |error|
+    = error
+br
+.form-group
+  = form_for @address, url: {action: "update"}, html: {class: "nifty_form"} do |m|
+    = m.label :address_1, value: "Основной адрес:"
+    = m.text_field :address_1, class: "form-control"
+    = m.label :address_2, value: "Дополнительный адрес:"
+    = m.text_field :address_2, class: "form-control"
+    = m.label :city, value: "Город:"
+    = m.text_field :city, class: "form-control"
+    = m.label :country, value: "Страна:"
+    = m.text_field :country, class: "form-control"
+    = m.label :zip_code, value: "Индекс:"
+    = m.text_field :zip_code, class: "form-control"
+    br
+    button.btn.btn-primary type="submit" Изменить
+    | &nbsp;
+    = link_to "Назад", addresses_path, class: "btn btn-primary"

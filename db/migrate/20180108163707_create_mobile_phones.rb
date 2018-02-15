@@ -10,7 +10,7 @@ class CreateMobilePhones < ActiveRecord::Migration[5.1]
       t.string  :processor
       t.integer :operation_system_id
 
-      t.timestamp
+      t.timestamps
     end
   end
 end
