@@ -1,2 +1,2 @@
 $(".cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
-$(".shopping-cart-item-<%= @order_mobile_phone.id %>").html("<%= escape_javascript(render 'carts/cart_row', order_mobile_phone: @order_mobile_phone, show_total: true) %>")
+$(".shopping-cart-item-total_price-<%= @order_mobile_phone.id %>").html("<%= escape_javascript(render 'carts/mobile_phone_total_price', order_mobile_phone: @order_mobile_phone) %>")

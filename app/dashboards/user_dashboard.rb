@@ -37,6 +37,7 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :avatar,
+    :name,
     :role,
     :addresses,
     :currency,

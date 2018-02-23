@@ -1,33 +1,42 @@
-= link_to "Основная информация", user_path("me"), class: "btn btn-warning"
-| &nbsp;
-= link_to "Адреса", addresses_path, class: "btn btn-warning"
-| &nbsp;
-= link_to "История заказов", user_path("me"), class: "btn btn-warning"
-br
-br
-= link_to "Добавить адрес", new_address_path, class: "btn btn-primary btn-sm"
-br
-br
-- current_user.addresses.each do |address|
-  table.table
-    thead
-        tr.table-active
-        th scope="row" Адрес:
-        th scope="row" = link_to "Редактировать", edit_address_path(address)
-        th scope="row" = link_to "Удалить", address_path(address), :method => :delete, data: {:confirm => "Удалить адрес. Вы уверены?" }
-    tbody
-      tr
-        th scope="row" Основной адрес:
-        th scope="row" = address.address_1
-      tr
-        th scope="row" Дополнительный адрес:
-        th scope="row" = address.address_2
-      tr
-        th scope="row" Город:
-        th scope="row" = address.city
-      tr
-        th scope="row" Страна:
-        th scope="row" = address.country
-      tr
-        th scope="row" Индекс:
-        th scope="row" = address.zip_code
+.row
+  .col-sm-4.col-md-3.sidebar
+    .nav.flex-column.nav-pills id="v-pills-tab" role="tablist" aria-orientation="vertical"
+      = link_to "Основная информация", user_path(:me), class: "nav-link"
+      = link_to "Адреса", addresses_path, class: "nav-link active"
+      = link_to "История заказов", orders_path, class: "nav-link"
+      - if current_user.present?
+        = link_to "Выйти из личного кабинета", destroy_user_session_path, class: "nav-link", :confirm => 'Вы уверены?', :method => :delete
+
+  .col-sm-8.col-md-9.main
+    h2.sub-header
+      | Адрес:
+      = link_to "Добавить адрес", new_address_path, class: "btn btn-primary float-right"
+    .table-responsive
+      table.table.table-striped
+        - current_user.addresses.each do |address|
+          thead
+            tr
+              th Адрес:
+              th = link_to "Редактировать", edit_address_path(address)
+              th = link_to "Удалить", address_path(address), :method => :delete, data: {:confirm => "Удалить адрес. Вы уверены?" }
+          tbody
+            tr
+              th Основной адрес:
+              th = address.address_1
+              th
+            tr
+              th Дополнительный адрес:
+              th = address.address_2
+              th
+            tr
+              th Город:
+              th = address.city
+              th
+            tr
+              th Страна:
+              th = address.country
+              th
+            tr
+              th Индекс:
+              th = address.zip_code
+              th

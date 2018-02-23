@@ -1,6 +1,8 @@
 .shopping-cart
   = render "shopping_cart"
-= form_tag carts_path, method: :POST
-  = select_tag :address_id, options_for_select(@addresses.map { |p| [ p.address_2, p.id ] }), include_blank: false
-br
-= submit_tag "купить", class: "btn btn-warning"
+  - if @order_mobile_phones.size != 0
+    = form_tag carts_path, method: :POST
+      = select_tag :address_id, options_for_select(@addresses.map { |p| [ p.address_1, p.id ] }), include_blank: false
+
+    br
+    = submit_tag "купить", class: "btn btn-warning"

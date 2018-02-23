@@ -11,6 +11,6 @@ class MobilePhone < ApplicationRecord
   validates :operative_memory, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 16 }
 
   def full_name
-    "#{manufacturer.name} #{name}"
+    [manufacturer.name, name].compact.join(" ")
   end
 end

@@ -6,5 +6,40 @@
     | &nbsp;
     |и добавьте товар в вашу корзину
 - else
-  - @order_mobile_phones.each do |order_mobile_phone|
-    = render 'carts/cart_row', order_mobile_phone: order_mobile_phone, show_total: true
+  table.table
+    thead
+      tr
+        th Модель:
+        th Цена(за 1 шт):
+        th Колличество:
+        th Цвет:
+        th Итого:
+        th
+        th
+    tbody
+    - @order_mobile_phones.each do |order_mobile_phone|
+      = form_for order_mobile_phone, url: order_mobile_phone_path(order_mobile_phone), method: :patch, remote: true do |f|
+        tr
+          th = order_mobile_phone.mobile_phone.full_name
+          th
+            - units = current_user && current_user.currency ? current_user.currency.name : "BYN"
+            = number_to_currency order_mobile_phone.unit_price, unit: units
+          th
+            .row
+              .col-6
+                = f.number_field :quantity, value: order_mobile_phone.quantity.to_i, class: "form-control", min: 1
+          th
+            = f.select :color_id, order_mobile_phone.mobile_phone.colors.map { |p| [ p.name, p.id ] }, {}, { class: "form-control"}
+            = f.hidden_field :mobile_phone_id, value: order_mobile_phone.mobile_phone.id
+          th [class="shopping-cart-item-total_price-#{order_mobile_phone.id}"]
+            = render "mobile_phone_total_price", order_mobile_phone: order_mobile_phone
+          th
+            .span
+              button
+                =fa_icon "refresh"
+                  = f.submit
+          th
+            .span
+              button
+                =fa_icon "trash"
+                  = link_to "Delete", order_mobile_phone_path(order_mobile_phone), { data: { confirm: "Are you sure you wish to delete the product '#{order_mobile_phone.mobile_phone.name}' from your cart?" }, method: :delete, remote: true }
