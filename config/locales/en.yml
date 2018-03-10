@@ -31,3 +31,15 @@
 
 en:
   hello: "Hello world"
+  mobile_phones:
+    index:
+      price: Price
+
+ru:
+  hello: Привет
+  mobile_phones:
+    index:
+      price: Цена
+
+
+= t('mobile_phones.index.price')

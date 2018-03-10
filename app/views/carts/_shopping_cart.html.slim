@@ -22,8 +22,7 @@
         tr
           th = order_mobile_phone.mobile_phone.full_name
           th
-            - units = current_user && current_user.currency ? current_user.currency.name : "BYN"
-            = number_to_currency order_mobile_phone.unit_price, unit: units
+            = display_price order_mobile_phone.unit_price
           th
             .row
               .col-6
@@ -32,14 +31,24 @@
             = f.select :color_id, order_mobile_phone.mobile_phone.colors.map { |p| [ p.name, p.id ] }, {}, { class: "form-control"}
             = f.hidden_field :mobile_phone_id, value: order_mobile_phone.mobile_phone.id
           th [class="shopping-cart-item-total_price-#{order_mobile_phone.id}"]
-            = render "mobile_phone_total_price", order_mobile_phone: order_mobile_phone
+            = render "carts/mobile_phone_total_price", order_mobile_phone: order_mobile_phone
+          th
+            button type="submit" name="commit"
+              i.fa.fa-refresh
           th
             .span
               button
-                =fa_icon "refresh"
-                  = f.submit
-          th
-            .span
-              button
-                =fa_icon "trash"
-                  = link_to "Delete", order_mobile_phone_path(order_mobile_phone), { data: { confirm: "Are you sure you wish to delete the product '#{order_mobile_phone.mobile_phone.name}' from your cart?" }, method: :delete, remote: true }
+                = link_to order_mobile_phone_path(order_mobile_phone), { data: { confirm: "Are you sure you wish to delete the product '#{order_mobile_phone.mobile_phone.name}' from your cart?" }, method: :delete, remote: true }
+                  = fa_icon "trash"
+  h4
+    |Общая стоимость:
+    |&nbsp
+
+    = display_price current_order.subtotal
+
+- if @order_mobile_phones.size != 0
+  = form_tag carts_path, method: :POST
+    = select_tag :address_id, options_for_select(current_user.addresses.map { |p| [ p.address_1, p.id ] } ), include_blank: false
+
+  br
+    = submit_tag "купить", class: "btn btn-warning"

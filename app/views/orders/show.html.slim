@@ -1,10 +1,32 @@
-table.table-active
-  thead
-    tr.table-active
-      th scope="row" История заказов:
-
-  tbody
-    tr
-      th scope="col"
-        p
-          h1 = current_user.order
+.row
+  .col-sm-4.col-md-3.sidebar
+      .nav.flex-column.nav-pills id="v-pills-tab" role="tablist" aria-orientation="vertical"
+        = link_to "Основная информация", user_path(:me), class: "nav-link"
+        = link_to "Адреса", addresses_path, class: "nav-link"
+        = link_to "История заказов", orders_path, class: "nav-link active"
+        - if current_user.present?
+          = link_to "Выйти из личного кабинета", destroy_user_session_path, class: "nav-link", :confirm => 'Вы уверены?', :method => :delete
+  .col-sm-8.col-md-9.main
+    h2.sub-header
+        | История заказов:
+    .table-responsive
+      table.table.table-striped
+            thead
+              tr
+                th Пользователь:
+                th Адрес:
+                th Валюта:
+                th Производитель:
+                th Колличество:
+                th Цвет:
+                th Цена:
+            tbody
+            - @order.order_mobile_phones.each do |omp|
+              tr
+                th = @order.user.name
+                th = @order.address.address_1
+                th = @order.currency.name
+                th = "#{omp.mobile_phone.manufacturer.name} #{omp.mobile_phone.name}"
+                th = omp.quantity
+                th = omp.color.name
+                th = omp.price

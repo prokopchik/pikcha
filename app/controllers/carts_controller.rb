@@ -3,7 +3,6 @@ class CartsController < ApplicationController
 
   def show
     @order_mobile_phones = current_order.order_mobile_phones.order(:created_at)
-    @addresses = current_user.addresses
   end
 
   def create

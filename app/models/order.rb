@@ -1,4 +1,4 @@
-class Order < ApplicationRecord
+  class Order < ApplicationRecord
   include AASM
 
   belongs_to :user, required: false
@@ -10,7 +10,11 @@ class Order < ApplicationRecord
   validates :user, :address, presence: true, unless: :new_order?
 
   def subtotal
-    order_mobile_phones.map { |oi| oi.valid? ? (oi.quantity * oi.price) : 0 }.sum
+    order_mobile_phones.sum { |oi| oi.valid? ? (oi.quantity * oi.price) : 0 }
+  end
+
+  def quantity
+    order_mobile_phones.inject(0){ |result, elem| result + elem.quantity}
   end
 
   private

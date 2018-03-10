@@ -11,24 +11,22 @@
         | История заказов:
     .table-responsive
       table.table.table-striped
-
             thead
               tr
-                th Пользователь:
+                th Заказ id:
                 th Адрес:
+                th Кол-во наименований:
+                th Статус:
                 th Валюта:
-                th Производитель:
-                th Колличество:
-                th Цвет:
                 th Цена:
+                th Заказ создан:
             tbody
-              -current_user.orders.each do |order|
-                -order.order_mobile_phones.each do |omp|
-                  tr
-                    th = order.user.name
-                    th = order.address.address_1
-                    th = order.currency.name
-                    th = "#{omp.mobile_phone.manufacturer.name} #{omp.mobile_phone.name}"
-                    th = omp.quantity
-                    th = omp.color.name
-                    th =omp.price
+              - @orders.each do |order|
+                tr
+                  th = link_to order.id, order_path(order)
+                  th = order.address.address_1
+                  th = order.order_mobile_phones.size
+                  th = order.status
+                  th = order.currency.name
+                  th = order.subtotal
+                  th = order.created_at

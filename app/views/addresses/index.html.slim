@@ -12,31 +12,32 @@
       | Адрес:
       = link_to "Добавить адрес", new_address_path, class: "btn btn-primary float-right"
     .table-responsive
-      table.table.table-striped
-        - current_user.addresses.each do |address|
-          thead
-            tr
-              th Адрес:
-              th = link_to "Редактировать", edit_address_path(address)
-              th = link_to "Удалить", address_path(address), :method => :delete, data: {:confirm => "Удалить адрес. Вы уверены?" }
-          tbody
-            tr
-              th Основной адрес:
-              th = address.address_1
-              th
-            tr
-              th Дополнительный адрес:
-              th = address.address_2
-              th
-            tr
-              th Город:
-              th = address.city
-              th
-            tr
-              th Страна:
-              th = address.country
-              th
-            tr
-              th Индекс:
-              th = address.zip_code
-              th
+      - current_user.addresses.each do |address|
+        table.table.table-striped
+            thead
+              tr
+                th Адрес:
+                th = link_to "Редактировать", edit_address_path(address)
+                th = link_to "Удалить", address_path(address), :method => :delete, data: {:confirm => "Удалить адрес. Вы уверены?" }
+            tbody
+              tr
+                th Основной адрес:
+                th = address.address_1
+                th
+              tr
+                th Дополнительный адрес:
+                th = address.address_2
+                th
+              tr
+                th Город:
+                th = address.city
+                th
+              tr
+                th Страна:
+                th = address.country
+                th
+              tr
+                th Индекс:
+                th = address.zip_code
+                th
+        br
