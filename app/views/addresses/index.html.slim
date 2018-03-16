@@ -21,23 +21,23 @@
                 th = link_to "Удалить", address_path(address), :method => :delete, data: {:confirm => "Удалить адрес. Вы уверены?" }
             tbody
               tr
-                th Основной адрес:
-                th = address.address_1
-                th
+                td Основной адрес:
+                td = address.address_1
+                td
               tr
-                th Дополнительный адрес:
-                th = address.address_2
-                th
+                td Дополнительный адрес:
+                td = address.address_2
+                td
               tr
-                th Город:
-                th = address.city
-                th
+                td Город:
+                td = address.city
+                td
               tr
-                th Страна:
-                th = address.country
-                th
+                td Страна:
+                td = address.country
+                td
               tr
-                th Индекс:
-                th = address.zip_code
-                th
+                td Индекс:
+                td = address.zip_code
+                td
         br

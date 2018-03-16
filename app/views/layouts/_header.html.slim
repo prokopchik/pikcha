@@ -17,6 +17,12 @@ nav.navbar.navbar-expand-lg.navbar-dark style=("background-color: #343a40;")
         li.nav-item
           = link_to "Войти", new_user_session_path(current_user), class: "nav-link href"
     ul.nav.navbar-nav.navbar-right
+      = link_to "en", locale_path(:en), method: :PUT
+      | &nbsp
+      = link_to "ru", locale_path(:ru), method: :PUT
+    | &nbsp
+    | &nbsp
+    ul.nav.navbar-nav.navbar-right
       li.nav-item.cart-text
         = render 'layouts/cart_text'
 

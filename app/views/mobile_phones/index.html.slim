@@ -2,9 +2,12 @@ table.table
   thead.thead-dark
     tr
       th scope="col"
-      th scope="col" Модель:
-      th scope="col" Объем памяти (Gb):
-      th scope="col" Цена (руб.):
+      th scope="col"
+        = t('mobile_phones.index.model')
+      th scope="col"
+        = t('mobile_phones.index.memory_storage')
+      th scope="col"
+        = t('mobile_phones.index.price')
   tbody
     - @mobile_phones.each do |mobile_phone|
       tr

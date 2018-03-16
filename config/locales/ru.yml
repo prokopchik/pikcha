@@ -1,0 +1,6 @@
+ru:
+  mobile_phones:
+    index:
+      price: "Цена:"
+      model: "Модель:"
+      memory_storage: "Объем памяти (Gb):"

@@ -30,16 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   mobile_phones:
     index:
-      price: Price
-
-ru:
-  hello: Привет
-  mobile_phones:
-    index:
-      price: Цена
-
-
-= t('mobile_phones.index.price')
+      price: "Price:"
+      model: "Model:"
+      memory_storage: "Memory storage (Gb):"

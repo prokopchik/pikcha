@@ -23,10 +23,10 @@
             tbody
             - @order.order_mobile_phones.each do |omp|
               tr
-                th = @order.user.name
-                th = @order.address.address_1
-                th = @order.currency.name
-                th = "#{omp.mobile_phone.manufacturer.name} #{omp.mobile_phone.name}"
-                th = omp.quantity
-                th = omp.color.name
-                th = omp.price
+                td = @order.user.name
+                td = @order.address.address_1
+                td = @order.currency.name
+                td = "#{omp.mobile_phone.manufacturer.name} #{omp.mobile_phone.name}"
+                td = omp.quantity
+                td = omp.color.name
+                td = omp.price
