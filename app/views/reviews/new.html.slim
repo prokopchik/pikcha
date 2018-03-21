@@ -1,0 +1,12 @@
+.form-group
+  = form_for @review, html: {class: "nifty_form"} do |f|
+    = f.label :name, value: "Имя:"
+    = f.text_field :name, class: "form-control"
+    = f.label :email, value: "E-mail:"
+    = f.text_field :email, class: "form-control"
+    = f.label :discription, value: "Отзыв:"
+    = f.text_field :discription, class: "form-control"
+    br
+    button.btn.btn-primary type="submit" Оставить отзыв
+    | &nbsp;
+    = link_to "Назад", root_path, class: "btn btn-primary"

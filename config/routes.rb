@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :addresses
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :orders
     resources :order_mobile_phones
     resources :roles
+    resources :reviews
 
     root to: "users#index"
   end
@@ -23,5 +24,6 @@ Rails.application.routes.draw do
   resources :order_mobile_phones, only:[:create, :update, :destroy]
   resources :orders, only: [:index, :show]
   resources :locales, only: [:update]
+  resources :reviews, only: [:new, :create]
   root to: "home#index"
 end

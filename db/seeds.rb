@@ -10,7 +10,7 @@ user_kos = User.create!(name: "Konstantin",
                        phone_number: "+375296865689",
                        role: role_member,
                        currency: currency_eur,
-                       locale: en,
+                       locale: "en",
                        password: 123456)
 
 user_david = User.create!(name: "David",
@@ -18,7 +18,7 @@ user_david = User.create!(name: "David",
                          phone_number: "+375293251333",
                          role: role_member,
                          currency: currency_usd,
-                         locale: ru,
+                         locale: "ru",
                          password: 654321)
 
 user_ihar = User.create!(name: "Ihar",
@@ -26,7 +26,7 @@ user_ihar = User.create!(name: "Ihar",
                         phone_number: "+375259251685",
                         role: role_admin,
                         currency: currency_byn,
-                        locale: en,
+                        locale: "en",
                         password: 12345678)
 
 

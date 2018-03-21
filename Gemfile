@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-
+gem 'rails-i18n', '~> 4.0'
 gem "administrate"
 gem 'administrate-field-paperclip'
 gem 'paperclip'
@@ -37,4 +37,5 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry'
   gem 'pry-rails'
+  gem "letter_opener"
 end
