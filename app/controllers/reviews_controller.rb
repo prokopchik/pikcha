@@ -7,6 +7,8 @@ class ReviewsController < ApplicationController
        @review = Review.new(review_params)
   
       if @review.save
+
+        ReviewMailer.new_review(@review).deliver
         flash.notice = 'Ваш отзыв успешно добавлен'
         redirect_to root_path
       else
