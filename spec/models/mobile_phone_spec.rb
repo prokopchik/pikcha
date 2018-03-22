@@ -6,6 +6,7 @@ describe MobilePhone, type: :model do
   let(:mobile_phone_name) { "5" }
   let(:manufacturer_name) { "OnePlus" }
 
+  
   describe "full_name" do
     it "returns manufacturer name concatenated with phone name" do
       expect(subject.full_name).to eq("OnePlus 5")
