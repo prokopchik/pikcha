@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe AddressesController, type: :controller do
   let(:user) { build_stubbed(:user, addresses: [address]) }
-  let(:address) { build_stubbed(:address) }
+  let(:address) { build_stubbed(:address, id: 1) }
 
   before do
     sign_in (user)
@@ -39,5 +39,16 @@ describe AddressesController, type: :controller do
       expect(response).to render_template(:new)
       expect(assigns(:address).errors).not_to be_empty
     end 
+  end
+
+  describe "GET edit" do 
+    before do
+      allow(user.addresses).to receive(:find).and_return(address)
+    end
+    it "edit address" do 
+      get :edit, params: { id: 1 }
+      expect(assigns(:address).id).to eq(1)
+      expect(response).to have_http_status(:ok)  
+    end
   end
 end
